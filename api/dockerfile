@@ -1,0 +1,11 @@
+FROM justworld/python-ubuntu:18.04
+ENV LANG C.UTF-8
+RUN mkdir -p /var/web/233cafe \
+    && cd /var/web/233cafe/
+WORKDIR /var/web/233cafe/
+EXPOSE 8010
+COPY requirements.txt /var/web/233cafe/requirements.txt
+RUN pip3 install -r requirements.txt -i https://pypi.douban.com/simple
+COPY / /var/web/233cafe/
+RUN chmod 755 /var/web/233cafe/entrypoint.sh
+ENTRYPOINT ["/var/web/233cafe/entrypoint.sh"]
