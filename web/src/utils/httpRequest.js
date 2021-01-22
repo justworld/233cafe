@@ -1,6 +1,4 @@
 import axios from 'axios'
-import store from '@/store'
-import router from '@/router'
 import { Message } from 'elementui'
 
 const CancelToken = axios.CancelToken

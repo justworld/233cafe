@@ -1,5 +1,3 @@
-import store from '@/store'
-
 const tool = {
   // 字典转换为列表
   dictToArray (d) {

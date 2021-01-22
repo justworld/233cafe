@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import Router from 'vuerouter'
-import { MessageBox } from 'elementui'
-import store from '@/store'
 import IndexPage from '@/views/IndexPage'
 
 import CommonHeader from '@/components/headers/CommonHeader'
@@ -19,6 +17,19 @@ let router = new Router({
       name: 'index',
       component: IndexPage,
       children: [
+        // 首页
+        {
+          path: '/',
+          name: 'home',
+          components: {
+            header: CommonHeader,
+            content: () => import('@/views/HomePage'),
+            footer: CommonFooter
+          },
+          meta: {
+            menuIndex: 'home'
+          }
+        }
       ]
     }
   ]

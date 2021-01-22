@@ -1,9 +1,11 @@
 <template>
-  <el-header class="main1">
-  </el-header>
+  <el-main class="main3">
+    <div>
+      jlkjlk
+    </div>
+  </el-main>
 </template>
-
-<script>
+<script type="text/ecmascript-6">
 export default {
   data () {
     return {
