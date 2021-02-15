@@ -2,7 +2,9 @@
   <el-main class="main1 display1">
     <div class="main2">
       <div class="row1" v-for="i in articles" :key="i.id">
-        <el-link :underline="false" :href="item.url" class="crumb-font2" :key="'link'+index">{{i.title}}</el-link>
+        <el-link :href="'info/'+i.id" class="crumb-font2" :key="'link'+index">{{i.title}}</el-link>
+        <div class="main4">{{i.desc}}</div>
+        <div class="main5"><i class="el-icon-reading"></i><span class="font1">{{i.read}}</span><span></span><span class="font1">{{i.love}}</span></div>
       </div>
     </div>
     <div class="main3">
