@@ -94,6 +94,7 @@ module.exports = {
     vue: 'Vue',
     vuex: 'Vuex',
     vuerouter: 'VueRouter',
-    elementui: 'ELEMENT'
+    elementui: 'ELEMENT',
+    vant: 'vant'
   }
 }

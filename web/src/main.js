@@ -1,5 +1,6 @@
 import ELEMENT from 'elementui'
 import Vue from 'vue'
+import Vant from 'vant'
 import router from '@/router'
 import App from './App.vue'
 import store from '@/store'
@@ -8,6 +9,7 @@ import api from '@/api'
 import tool from '@/utils/tool'
 
 Vue.use(ELEMENT)
+Vue.use(Vant)
 
 Vue.prototype.$constants = constants // constants
 Vue.prototype.$api = api // api

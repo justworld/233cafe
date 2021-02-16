@@ -29,6 +29,18 @@ let router = new Router({
           meta: {
             menuIndex: 'home'
           }
+        },
+        {
+          path: 'info/:id',
+          name: 'info',
+          components: {
+            header: CommonHeader,
+            content: () => import('@/views/InfoPage'),
+            footer: CommonFooter
+          },
+          meta: {
+            menuIndex: 'home'
+          }
         }
       ]
     }
