@@ -3,8 +3,8 @@
     <div class="main3 main6">
       <div class="">推荐阅读</div>
       <div class="row5" v-for="i in recommends" :key="i.id">
-        <el-link :underline="false" :href="'info/'+i.id" class="link1" :key="i.id"><img class="img3" :src="i.cover"></el-link>
-        <el-link :underline="false" :href="'info/'+i.id" class="link1 link2" :key="i.id">{{i.title}}</el-link>
+        <el-link :underline="false" :href="'info/'+i.id" class="link1" :key="i.id" target="_blank"><img class="img3" :src="i.cover"></el-link>
+        <el-link :underline="false" :href="'info/'+i.id" class="link1 link2" :key="i.id" target="_blank">{{i.title}}</el-link>
       </div>
     </div>
     <div v-html="info.content" class="main4"></div>
@@ -12,7 +12,7 @@
       <div class="">广告</div>
       <el-carousel :interval="5000">
         <el-carousel-item v-for="i in ads" :key="i.url">
-          <el-link :underline="false" :href="i.url" class="link1 link3" :key="i.url"><img class="img4" :src="i.cover"></el-link>
+          <el-link :underline="false" :href="i.url" class="link1 link3" :key="i.url" target="_blank"><img class="img4" :src="i.cover"></el-link>
         </el-carousel-item>
       </el-carousel>
     </div>

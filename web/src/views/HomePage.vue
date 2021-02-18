@@ -3,12 +3,12 @@
     <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="load" class="main2" :offset="500">
       <div class="row1" v-for="i in articles" :key="i.id">
         <div class="row2">
-          <el-link :underline="false" :href="'info/'+i.id" class="link1" :key="i.id">{{i.title}}</el-link>
+          <el-link :underline="false" :href="'info/'+i.id" class="link1" :key="i.id" target="_blank">{{i.title}}</el-link>
           <div class="cell1">{{i.desc}}</div>
           <div class="cell2"><i class="el-icon-reading icon1"></i><span class="font1">{{i.read}}</span><van-icon name="like-o" class="icon1 love1"/><span class="font1">{{i.love}}</span></div>
         </div>
         <div class="row3">
-          <el-link :underline="false" :href="'info/'+i.id" class="link1" :key="i.id"><img class="img1" :src="i.cover"></el-link>
+          <el-link :underline="false" :href="'info/'+i.id" class="link1" :key="i.id" target="_blank"><img class="img1" :src="i.cover"></el-link>
         </div>
       </div>
     </van-list>
@@ -16,11 +16,11 @@
       <div class="">热门阅读</div>
       <div class="row1" v-for="i in hotSpots" :key="i.id">
         <div class="row4">
-          <el-link :underline="false" :href="'info/'+i.id" class="link1 link2" :key="i.id">{{i.title}}</el-link>
+          <el-link :underline="false" :href="'info/'+i.id" class="link1 link2" :key="i.id" target="_blank">{{i.title}}</el-link>
           <div class="cell3"><i class="el-icon-reading icon1"></i><span class="font1">{{i.read}}</span><van-icon name="like-o" class="icon1 love1" /><span class="font1">{{i.love}}</span></div>
         </div>
         <div class="row5">
-          <el-link :underline="false" :href="'info/'+i.id" class="link1" :key="i.id"><img class="img2" :src="i.cover"></el-link>
+          <el-link :underline="false" :href="'info/'+i.id" class="link1" :key="i.id" target="_blank"><img class="img2" :src="i.cover"></el-link>
         </div>
       </div>
     </div>
