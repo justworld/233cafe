@@ -3,9 +3,7 @@
     <router-view name="header"></router-view>
     <router-view name="content"></router-view>
     <router-view name="footer"></router-view>
-    <el-backtop class="backtop1" target="#app">
-      <i class="backtop1-icon1"></i>
-    </el-backtop>
+    <el-backtop class="backtop1" target="#app"></el-backtop>
   </el-container>
 </template>
 
