@@ -44,8 +44,7 @@ export default {
         {id: 4, title: '北阿坎德邦仍有171人失踪，救援队与时间赛跑，印网民：向中国要一些大型钻机吧', cover: 'http://www.santaihu.com/e/data/tmp/titlepic/3a8435d2546cfd9a03b636b86ccbc8c2.jpg', read: 10, love: 10},
         {id: 5, title: '北阿坎德邦仍有171人失踪，救援队与时间赛跑，印网民：向中国要一些大型钻机吧', cover: 'http://www.santaihu.com/e/data/tmp/titlepic/893f1d9c3c1becfc4155e14787255f00.jpg', read: 10, love: 10},
         {id: 6, title: '北阿坎德邦仍有171人失踪，救援队与时间赛跑，印网民：向中国要一些大型钻机吧', cover: 'http://www.santaihu.com/e/data/tmp/titlepic/3a8435d2546cfd9a03b636b86ccbc8c2.jpg', read: 10, love: 10},
-        {id: 7, title: '北阿坎德邦仍有171人失踪，救援队与时间赛跑，印网民：向中国要一些大型钻机吧', cover: 'http://www.santaihu.com/e/data/tmp/titlepic/893f1d9c3c1becfc4155e14787255f00.jpg', read: 10, love: 10},
-        {id: 8, title: '北阿坎德邦仍有171人失踪，救援队与时间赛跑，印网民：向中国要一些大型钻机吧', cover: 'http://www.santaihu.com/e/data/tmp/titlepic/3a8435d2546cfd9a03b636b86ccbc8c2.jpg', read: 10, love: 10}]
+        {id: 7, title: '北阿坎德邦仍有171人失踪，救援队与时间赛跑，印网民：向中国要一些大型钻机吧', cover: 'http://www.santaihu.com/e/data/tmp/titlepic/893f1d9c3c1becfc4155e14787255f00.jpg', read: 10, love: 10}]
     }
   },
   created () {

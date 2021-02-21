@@ -1,13 +1,46 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"fmt"
+	"log"
+	"net/http"
 
+	"github.com/gin-gonic/gin"
+	"233cafe/routers"
+	"233cafe/config"
+)
+
+func init() {
+	config.Setup()
+}
+
+// @title Golang Gin API
+// @version 1.0
+// @description An example of gin
+// @termsOfService https://github.com/EDDYCJY/go-gin-example
+// @license.name MIT
+// @license.url https://github.com/EDDYCJY/go-gin-example/blob/master/LICENSE
 func main() {
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+	gin.SetMode(config.ServerSetting.Env)
+
+	routersInit := routers.InitRouter()
+	readTimeout := config.ServerSetting.ReadTimeout
+	writeTimeout := config.ServerSetting.WriteTimeout
+	endPoint := fmt.Sprintf(":%d", config.ServerSetting.HttpPort)
+	maxHeaderBytes := 1 << 20
+
+	server := &http.Server{
+		Addr:           endPoint,
+		Handler:        routersInit,
+		ReadTimeout:    readTimeout,
+		WriteTimeout:   writeTimeout,
+		MaxHeaderBytes: maxHeaderBytes,
+	}
+
+	log.Printf("[info] start http server listening %s", endPoint)
+
+	err := server.ListenAndServe()
+	if err != nil {
+		log.Fatalf("server error %s", err)
+	}
 }
