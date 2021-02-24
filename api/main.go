@@ -8,10 +8,12 @@ import (
 	"github.com/gin-gonic/gin"
 	"233cafe/routers"
 	"233cafe/config"
+	"233cafe/models"
 )
 
 func init() {
 	config.Setup()
+	models.Setup()
 }
 
 // @title Golang Gin API
