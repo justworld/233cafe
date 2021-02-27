@@ -3,7 +3,6 @@ package routers
 import (
 	"github.com/gin-gonic/gin"
 
-	"233cafe/app/common"
 	"233cafe/app/article"
 )
 
@@ -16,8 +15,12 @@ func InitRouter() *gin.Engine {
 	api := r.Group("/api")
 	api.Use()
 	{
-		api.GET("/common/hello", common.GetHello)
-		api.GET("/article/hello", article.GetHello)
+		api.GET("/article", article.GetAricles)
+		api.GET("/article/hot", article.GetHots)
+		api.GET("/article/:id", article.GetInfo)
+		api.GET("/article/:id/recommend", article.GetRecommends)
+		api.GET("/article/:id/ad", article.GetAricles)
+		api.GET("/article/:id/love", article.UpVote)
 	}
 
 	return r
