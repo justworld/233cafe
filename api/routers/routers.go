@@ -15,11 +15,11 @@ func InitRouter() *gin.Engine {
 	api := r.Group("/api")
 	api.Use()
 	{
-		api.GET("/article", article.GetAricles)
-		api.GET("/article/hot", article.GetHots)
+		api.GET("/article", article.GetAricleList)
+		api.GET("/hot", article.GetHots)
 		api.GET("/article/:id", article.GetInfo)
 		api.GET("/article/:id/recommend", article.GetRecommends)
-		api.GET("/article/:id/ad", article.GetAricles)
+		api.GET("/article/:id/ad", article.GetAds)
 		api.GET("/article/:id/love", article.UpVote)
 	}
 

@@ -1,6 +1,8 @@
 package models
 
 import (
+	"233cafe/config"
+	"fmt"
 	"gorm.io/driver/mysql"
 	"log"
 	"time"
@@ -12,17 +14,18 @@ import (
 var db *gorm.DB
 
 type Model struct {
-	ID         uint
-	Enable     bool
-	CreatedAt  time.Time
-	UpdatedAt time.Time
+	ID         uint  `gorm:"column:id"`
+	Enable     bool  `gorm:"column:enable"`
+	CreateTime  time.Time  `gorm:"column:create_time"`
+	UpdateTime time.Time  `gorm:"column:update_time"`
 }
 
 // Setup initializes the database instance
 func Setup() {
 	var err error
 	db, err = gorm.Open(mysql.New(mysql.Config{
-		DSN: "root:123456@tcp(127.0.0.1:3306)/233cafe?charset=utf8&parseTime=True&loc=Local", // data source name
+		DSN: fmt.Sprintf("root:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local",
+			config.DatabaseSetting.Password, config.DatabaseSetting.Host, config.DatabaseSetting.Name), // data source name
 		DefaultStringSize: 256, // default size for string fields
 		DisableDatetimePrecision: true, // disable datetime precision, which not supported before MySQL 5.6
 		DontSupportRenameIndex: true, // drop & create when rename index, rename index not supported before MySQL 5.7, MariaDB

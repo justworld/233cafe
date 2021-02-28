@@ -4,11 +4,11 @@ import (
 	"233cafe/models"
 )
 
-func GetArticles() (int64, error) {
-	count, err := models.GetArticleTotal()
+func GetArticles(p int, limit int, s string) ([]*models.Article, error) {
+	articles, err := models.GetArticleList((p-1)*limit, limit, s, false, false)
 	if err != nil {
-		return 0, err
+		return nil, err
 	}
 
-	return count, nil
+	return articles, nil
 }

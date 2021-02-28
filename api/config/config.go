@@ -9,11 +9,11 @@ import (
 
 type App struct {
 	RuntimeRootPath string
-
-	LogSavePath string
-	LogSaveName string
-	LogFileExt  string
-	TimeFormat  string
+	PageSize        int
+	LogSavePath     string
+	LogSaveName     string
+	LogFileExt      string
+	TimeFormat      string
 }
 
 var AppSetting = &App{}
