@@ -1,7 +1,6 @@
 package article
 
 import (
-	"net/http"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -18,14 +17,28 @@ func GetAricleList(c *gin.Context) {
 	appG := api.Gin{C: c}
 	p, err := strconv.Atoi(c.Query("p"))
 	if err != nil {
-		appG.Response(http.StatusOK, app.SUCCESS, app.ERROR)
+		appG.ErrResponse(app.ERROR, err.Error())
 	} else {
 		s := c.Query("s")
-		count, err := GetArticles(p, config.AppSetting.PageSize, s)
+		data, err := GetArticles(p, config.AppSetting.PageSize, s)
 		if err != nil {
-			appG.Response(http.StatusOK, app.SUCCESS, app.ERROR)
+			appG.ErrResponse(app.ERROR, err.Error())
 		} else {
-			appG.Response(http.StatusOK, app.SUCCESS, count)
+
+			result := make([] map[string]interface{}, len(data))
+			for i, a := range data {
+				result[i] = map[string]interface{}{
+					"id":          a.ID,
+					"category_id": a.ID,
+					"title": a.Title,
+					"desc": a.Desc,
+					"cover": a.Cover,
+					"read": a.ReadNum,
+					"love": a.LikeNum,
+				}
+			}
+
+			appG.Response(result)
 		}
 	}
 }
@@ -42,7 +55,7 @@ func GetInfo(c *gin.Context) {
 	//} else {
 	//	appG.Response(http.StatusOK, app.SUCCESS, count)
 	//}
-	appG.Response(http.StatusOK, app.SUCCESS, app.ERROR)
+	appG.Response(0)
 }
 
 // @Summary 获取热门阅读
@@ -56,7 +69,7 @@ func GetHots(c *gin.Context)  {
 	//} else {
 	//	appG.Response(http.StatusOK, app.SUCCESS, count)
 	//}
-	appG.Response(http.StatusOK, app.SUCCESS, app.ERROR)
+	appG.Response(0)
 }
 
 // @Summary 获取推荐阅读
@@ -70,7 +83,7 @@ func GetRecommends(c *gin.Context)  {
 	//} else {
 	//	appG.Response(http.StatusOK, app.SUCCESS, count)
 	//}
-	appG.Response(http.StatusOK, app.SUCCESS, app.ERROR)
+	appG.Response(0)
 }
 
 // @Summary 获取广告
@@ -84,7 +97,7 @@ func GetAds(c *gin.Context)  {
 	//} else {
 	//	appG.Response(http.StatusOK, app.SUCCESS, count)
 	//}
-	appG.Response(http.StatusOK, app.SUCCESS, app.ERROR)
+	appG.Response(0)
 }
 
 // @Summary 点赞
@@ -98,5 +111,5 @@ func UpVote(c *gin.Context)  {
 	//} else {
 	//	appG.Response(http.StatusOK, app.SUCCESS, count)
 	//}
-	appG.Response(http.StatusOK, app.SUCCESS, app.ERROR)
+	appG.Response(0)
 }

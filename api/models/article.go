@@ -47,7 +47,7 @@ func (v Ad) TableName() string {
 
 func GetArticleList(offset int, limit int, s string, orderLike bool, orderRead bool) ([]*Article, error) {
 	var articles []*Article
-	query := db.Where("enable = ?", 0).Order("create_time desc")
+	query := db.Where("enable = ?", 1).Order("create_time desc")
 	if (s != "") {
 		param := "%" + s + "%"
 		query = query.Where("title LIKE ?", param).Or("html_content LIKE ?", param)

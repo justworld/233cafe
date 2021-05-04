@@ -53,7 +53,7 @@ http.interceptors.response.use(
 
 // 请求地址处理
 http.adornUrl = (actionName) => {
-  return window.SITE_CONFIG.baseUrl + actionName + '/'
+  return window.SITE_CONFIG.baseUrl + actionName
 }
 
 export default http
