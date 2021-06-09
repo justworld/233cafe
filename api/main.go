@@ -5,10 +5,10 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gin-gonic/gin"
-	"233cafe/routers"
 	"233cafe/config"
 	"233cafe/models"
+	"233cafe/routers"
+	"github.com/gin-gonic/gin"
 )
 
 func init() {
