@@ -1,0 +1,15 @@
+FROM justworld/golang
+
+ENV LANG C.UTF-8
+
+RUN mkdir -p /var/web/233cafe/api \
+    && cd /var/web/233cafe/api/
+
+WORKDIR /var/web/233cafe/api
+
+COPY / /var/web/233cafe/api/
+RUN go mod download
+RUN go build main.go
+RUN chmod 777 /var/web/233cafe/api/entrypoint.sh
+
+ENTRYPOINT ["/var/web/233cafe/api/entrypoint.sh"]
