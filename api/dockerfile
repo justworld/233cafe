@@ -1,4 +1,4 @@
-FROM justworld/golang
+FROM justworld/cn-golang
 
 ENV LANG C.UTF-8
 
