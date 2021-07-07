@@ -31,6 +31,66 @@ let router = new Router({
           }
         },
         {
+          path: '/j',
+          name: 'j',
+          components: {
+            header: CommonHeader,
+            content: () => import('@/views/HomePage'),
+            footer: CommonFooter
+          },
+          meta: {
+            menuIndex: 'j'
+          }
+        },
+        {
+          path: '/k',
+          name: 'k',
+          components: {
+            header: CommonHeader,
+            content: () => import('@/views/HomePage'),
+            footer: CommonFooter
+          },
+          meta: {
+            menuIndex: 'k'
+          }
+        },
+        {
+          path: '/s',
+          name: 's',
+          components: {
+            header: CommonHeader,
+            content: () => import('@/views/HomePage'),
+            footer: CommonFooter
+          },
+          meta: {
+            menuIndex: 's'
+          }
+        },
+        {
+          path: '/t',
+          name: 't',
+          components: {
+            header: CommonHeader,
+            content: () => import('@/views/HomePage'),
+            footer: CommonFooter
+          },
+          meta: {
+            menuIndex: 't'
+          }
+        },
+        {
+          path: '/y',
+          name: 'y',
+          components: {
+            header: CommonHeader,
+            content: () => import('@/views/HomePage'),
+            footer: CommonFooter
+          },
+          meta: {
+            menuIndex: 'y'
+          }
+        },
+        {
           path: 'info/:id',
           name: 'info',
           components: {
