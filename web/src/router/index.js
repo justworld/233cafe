@@ -27,7 +27,8 @@ let router = new Router({
             footer: CommonFooter
           },
           meta: {
-            menuIndex: 'home'
+            menuIndex: 'home',
+            cz: 0
           }
         },
         {
@@ -39,7 +40,8 @@ let router = new Router({
             footer: CommonFooter
           },
           meta: {
-            menuIndex: 'j'
+            menuIndex: 'j',
+            cz: 1
           }
         },
         {
@@ -51,7 +53,8 @@ let router = new Router({
             footer: CommonFooter
           },
           meta: {
-            menuIndex: 'k'
+            menuIndex: 'k',
+            cz: 2
           }
         },
         {
@@ -63,7 +66,8 @@ let router = new Router({
             footer: CommonFooter
           },
           meta: {
-            menuIndex: 's'
+            menuIndex: 's',
+            cz: 3
           }
         },
         {
@@ -75,7 +79,8 @@ let router = new Router({
             footer: CommonFooter
           },
           meta: {
-            menuIndex: 't'
+            menuIndex: 't',
+            cz: 4
           }
         },
         {
@@ -87,7 +92,8 @@ let router = new Router({
             footer: CommonFooter
           },
           meta: {
-            menuIndex: 'y'
+            menuIndex: 'y',
+            cz: 5
           }
         },
         {

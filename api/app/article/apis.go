@@ -20,21 +20,25 @@ func GetAricleList(c *gin.Context) {
 		appG.ErrResponse(app.ERROR, err.Error())
 	} else {
 		s := c.Query("s")
-		data, err := GetArticles(p, config.AppSetting.PageSize, s)
+		category, err := strconv.Atoi(c.Query("cz"))
+		if err != nil {
+			category = app.CATEGORY_ALL
+		}
+		data, err := GetArticles(category, p, config.AppSetting.PageSize, s, false, false)
 		if err != nil {
 			appG.ErrResponse(app.ERROR, err.Error())
 		} else {
 
-			result := make([] map[string]interface{}, len(data))
+			result := make([]map[string]interface{}, len(data))
 			for i, a := range data {
 				result[i] = map[string]interface{}{
 					"id":          a.ID,
 					"category_id": a.ID,
-					"title": a.Title,
-					"desc": a.Desc,
-					"cover": a.Cover,
-					"read": a.ReadNum,
-					"love": a.LikeNum,
+					"title":       a.Title,
+					"desc":        a.Desc,
+					"cover":       a.Cover,
+					"read":        a.ReadNum,
+					"love":        a.LikeNum,
 				}
 			}
 
@@ -48,20 +52,28 @@ func GetAricleList(c *gin.Context) {
 // @Param state body int false "State"
 func GetInfo(c *gin.Context) {
 	appG := api.Gin{C: c}
-	//id := 1
-	//count, err := GetArticles()
-	//if err != nil {
-	//	appG.Response(http.StatusOK, app.SUCCESS, app.ERROR)
-	//} else {
-	//	appG.Response(http.StatusOK, app.SUCCESS, count)
-	//}
-	appG.Response(0)
+	id, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		appG.ErrResponse(app.ERROR, err.Error())
+	} else {
+		instance, err := GetArticleInfo(id)
+		if err != nil {
+			appG.ErrResponse(app.ERROR, err.Error())
+		}
+		result := map[string]interface{}{
+			"id":          instance.ID,
+			"category_id": instance.ID,
+			"title":       instance.Title,
+			"content":     instance.HtmlContent,
+		}
+		appG.Response(result)
+	}
 }
 
 // @Summary 获取热门阅读
 // @Param tag_id body int false "TagID"
 // @Param state body int false "State"
-func GetHots(c *gin.Context)  {
+func GetHots(c *gin.Context) {
 	appG := api.Gin{C: c}
 	//count, err := GetArticles()
 	//if err != nil {
@@ -75,7 +87,7 @@ func GetHots(c *gin.Context)  {
 // @Summary 获取推荐阅读
 // @Param tag_id body int false "TagID"
 // @Param state body int false "State"
-func GetRecommends(c *gin.Context)  {
+func GetRecommends(c *gin.Context) {
 	appG := api.Gin{C: c}
 	//count, err := GetArticles()
 	//if err != nil {
@@ -89,7 +101,7 @@ func GetRecommends(c *gin.Context)  {
 // @Summary 获取广告
 // @Param tag_id body int false "TagID"
 // @Param state body int false "State"
-func GetAds(c *gin.Context)  {
+func GetAds(c *gin.Context) {
 	appG := api.Gin{C: c}
 	//count, err := GetArticles()
 	//if err != nil {
@@ -103,7 +115,7 @@ func GetAds(c *gin.Context)  {
 // @Summary 点赞
 // @Param tag_id body int false "TagID"
 // @Param state body int false "State"
-func UpVote(c *gin.Context)  {
+func UpVote(c *gin.Context) {
 	appG := api.Gin{C: c}
 	//count, err := GetArticles()
 	//if err != nil {

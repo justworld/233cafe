@@ -54,6 +54,7 @@ export default {
   methods: {
     load () {
       let $this = this
+      console.log($this)
       if (!$this.loading) {
         $this.loading = true
         $this.$api.getArticles(res => {
@@ -62,7 +63,7 @@ export default {
           }
           $this.loading = false
           $this.finished = true
-        }, { p: 1 })
+        }, { p: 1, cz: $this.$route.meta.cz })
       }
       /* let examples = [
         {id: 1, category_id: 1, title: '北阿坎德邦仍有171人失踪，救援队与时间赛跑，印网民：向中国要一些大型钻机吧', desc: '500多名救援人员正在争分夺秒地营救被困的34名工人（可能还不止）。这些工人被困在北阿坎德邦查莫里地区一水电工程1.6公里长的隧道里，隧道里满是碎石。...', cover: 'http://www.santaihu.com/e/data/tmp/titlepic/893f1d9c3c1becfc4155e14787255f00.jpg', read: 10, love: 10},

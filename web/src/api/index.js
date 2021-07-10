@@ -38,6 +38,14 @@ const api = {
       resHandle(res, handler, err)
     })
   },
+  // 获取文章
+  getArticle (handler, data, err) {
+    let id = data.id
+    delete data.id
+    httpRequest.get(httpRequest.adornUrl('article/' + id), { params: data }).then(res => {
+      resHandle(res, handler, err)
+    })
+  },
   reg (handler, data, err) {
     httpRequest.post(httpRequest.adornUrl('user/reg'), data).then(res => {
       resHandle(res, handler, err)

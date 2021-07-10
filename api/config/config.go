@@ -19,7 +19,7 @@ type App struct {
 var AppSetting = &App{}
 
 type Server struct {
-	Env      string
+	Env          string
 	HttpPort     int
 	ReadTimeout  time.Duration
 	WriteTimeout time.Duration
@@ -28,11 +28,11 @@ type Server struct {
 var ServerSetting = &Server{}
 
 type Database struct {
-	Type        string
-	User        string
-	Password    string
-	Host        string
-	Name        string
+	Type     string
+	User     string
+	Password string
+	Host     string
+	Name     string
 }
 
 var DatabaseSetting = &Database{}
@@ -74,4 +74,3 @@ func mapTo(section string, v interface{}) {
 		log.Fatalf("Cfg.MapTo %s err: %v", section, err)
 	}
 }
-
