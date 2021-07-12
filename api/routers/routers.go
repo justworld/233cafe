@@ -58,10 +58,11 @@ func InitRouter() *gin.Engine {
 	{
 		api.GET("/article", article.GetAricleList)
 		api.GET("/hot", article.GetHots)
+		api.GET("/hot/word", article.GetHotWord)
 		api.GET("/article/:id", article.GetInfo)
 		api.GET("/article/:id/recommend", article.GetRecommends)
 		api.GET("/article/:id/ad", article.GetAds)
-		api.GET("/article/:id/love", article.UpVote)
+		api.POST("/article/:id/love", article.UpVote)
 	}
 
 	return r

@@ -81,3 +81,11 @@ func GetArticle(id int) (*Article, error) {
 
 	return &article, nil
 }
+
+func AddRead(id int) {
+	db.Model(&Article{}).Where("id = ?", id).Update("read_num", gorm.Expr(" read_num + ?", 1))
+}
+
+func AddLike(id int) {
+	db.Model(&Article{}).Where("id = ?", id).Update("like_num", gorm.Expr(" like_num + ?", 1))
+}

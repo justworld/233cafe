@@ -46,8 +46,23 @@ const api = {
       resHandle(res, handler, err)
     })
   },
-  reg (handler, data, err) {
-    httpRequest.post(httpRequest.adornUrl('user/reg'), data).then(res => {
+  // 获取热点
+  getHots (handler, data, err) {
+    httpRequest.get(httpRequest.adornUrl('hot'), { params: data }).then(res => {
+      resHandle(res, handler, err)
+    })
+  },
+  // 获取热点搜索关键字
+  getHotWord (handler, data, err) {
+    httpRequest.get(httpRequest.adornUrl('hot/word'), { params: data }).then(res => {
+      resHandle(res, handler, err)
+    })
+  },
+  // 文章喜欢
+  addLike (handler, data, err) {
+    let id = data.id
+    delete data.id
+    httpRequest.post(httpRequest.adornUrl('article/' + id + '/love'), data).then(res => {
       resHandle(res, handler, err)
     })
   }

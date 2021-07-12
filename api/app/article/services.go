@@ -21,3 +21,20 @@ func GetArticleInfo(id int) (*models.Article, error) {
 
 	return article, nil
 }
+
+func GetArticleAds(id int) (*models.Ad, error) {
+	return nil, nil
+}
+
+func GetArticleRecommends(id int) ([]*models.Article, error) {
+	return nil, nil
+
+}
+
+func AddArticleRead(id int) {
+	models.AddRead(id)
+}
+
+func AddArticleLike(id int) {
+	models.AddLike(id)
+}
